@@ -53,3 +53,32 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 	$ make flash
 	$ make monitor
 	
+
+## Install MicroPython
+
+### 1. Install MicroPython ( latest version )
+[http://micropython.org/download#esp8266](http://micropython.org/download#esp8266) 
+
+### 2. Install esptool
+	$ sudo apt install python-pip
+	$ sudo pip install esptool
+	$ ls -al /dev/ttyUSB0
+	$ python -m esptool --port /dev/ttyUSB0 flash_id
+	$ esptool.py --chip esp32 -p /dev/ttyUSB0 erase_flash
+	$ esptool.py --chip esp32 -p /dev/ttyUSB0 write_flash \ -z 0x1000 esp32-20180815-v1.9.4-465-g056e0b629.bin
+	$ sudo screen /dev/ttyUSB0 115200
+
+### 3. Install ampy 	
+	$ sudo pip install adafruit-ampy
+	$ sudo pip install adafruit-ampy --upgrade
+
+### 4. Create a MicroPython module
+	$ gedit name.py
+	$ ampy -p /dev/tty.SLAB_USBtoUART run name.py
+
+	$ ampy -p /dev/tty.SLAB_USBtoUART put name.py
+	$ ampy -p /dev/tty.SLAB_USBtoUART get name.py
+	
+	>>> import os
+	>>> os.listdir()
+	['boot.py', 'blink.py']
