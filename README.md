@@ -88,10 +88,12 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 
 ### 4. Create a MicroPython module
 	$ gedit name.py
-	$ ampy -p /dev/tty.SLAB_USBtoUART run name.py
+	
+	# screen과 동시 사용하면 작동하지 않음
+	$ sudo ampy -p /dev/tty.SLAB_USBtoUART run name.py
 
-	$ ampy -p /dev/tty.SLAB_USBtoUART put name.py
-	$ ampy -p /dev/tty.SLAB_USBtoUART get name.py
+	$ sudo ampy -p /dev/tty.SLAB_USBtoUART put name.py
+	$ sudo ampy -p /dev/tty.SLAB_USBtoUART get name.py
 	
 	>>> import os
 	>>> os.listdir()
