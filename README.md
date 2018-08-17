@@ -87,13 +87,16 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 	$ sudo pip install adafruit-ampy --upgrade
 
 ### 4. Create a MicroPython module
-	$ gedit name.py
+	$ gedit blink.py
 	
 	# screen과 동시 사용하면 작동하지 않음
-	$ sudo ampy -p /dev/tty.SLAB_USBtoUART run name.py
-
-	$ sudo ampy -p /dev/tty.SLAB_USBtoUART put name.py
-	$ sudo ampy -p /dev/tty.SLAB_USBtoUART get name.py
+	$ ampy -p /dev/ttyUSB0 run blink.py
+	$ sudo ampy -p /dev/ttyUSB0 run blink.py
+	
+	$ ampy -p /dev/ttyUSB0 put blink.py
+	$ sudo ampy -p /dev/ttyUSB0 put blink.py
+	$ ampy -p /dev/ttyUSB0 get blink.py
+	$ sudo ampy -p /dev/ttyUSB0 get blink.py
 	
 	>>> import os
 	>>> os.listdir()
