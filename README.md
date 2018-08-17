@@ -19,13 +19,22 @@ MicroPython on ESP32 boards
 	$ echo $PATH
 	/xtensa-esp32-elf/bin 확인
 
-### 2. Get ESP-IDF  
+	+++ Install git 
+	$ sudo add-apt-repository ppa:git-core/ppa
+	$ sudo apt-get update && sudo apt-get dist-upgrade
+	$ sudo apt-get install git-core
+	$ git version
 	
+### 2. Get ESP-IDF  
+
 	$ cd ~/esp
 	$ git clone --recursive https://github.com/espressif/esp-idf.git
 	$ cd ~/esp/esp-idf
 	$ git submodule update --init --recursive
-	$ export IDF_PATH=~/esp/esp-idf
+	
+	$ sudo gedit ~/.bashrc
+	맨 밑에 export IDF_PATH=$HOME/esp/esp-idf$IDF_PATH 추가
+
 	$ echo $IDF_PATH
 	/esp/esp-idf 확인
 
@@ -33,20 +42,21 @@ MicroPython on ESP32 boards
 		
 	$ cd ~/esp
 	$ cp -r $IDF_PATH/examples/get-started/hello_world .
-	$ cd ~/esp/hello_world
-	$ make menuconfig
-
-![image](https://user-images.githubusercontent.com/35492329/44190301-0efa8980-a161-11e8-9923-cec0161f5b6d.png)
 	
-Serial flasher config --> Default serial port --> /dev/ttyUSB0
-
 	$ ls -al /dev/ttyUSB*
 	crw-rw---- 1 root dialout 188, 0 Aug 15 22:33 /dev/ttyUSB0
 	$ id
 	uid=1000(pearl) gid=1000(pearl) groups=1000(pearl),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
 	: dialout에 속해있지 않으므로 권한을 준다.
-	$ sudo usermod -a -G dialout pearl
-	$ sudo reboot 
+	$ sudo usermod -a -G dialout $USER
+	$ sudo reboot
+	
+	$ cd ~/esp/hello_world
+	$ make menuconfig
+
+![image](https://user-images.githubusercontent.com/35492329/44190301-0efa8980-a161-11e8-9923-cec0161f5b6d.png)
+	
+Serial flasher config --> Default serial port --> /dev/ttyUSB0 
 
 
 ### 4. Build and Flash
