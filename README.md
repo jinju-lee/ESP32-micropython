@@ -14,7 +14,8 @@ MicroPython on ESP32 boards
 
 	$ sudo gedit ~/.bashrc
 	맨 밑에 export PATH=$HOME/esp/xtensa-esp32-elf/bin:$PATH 추가
-
+	
+	터미널 하나 더 켜서
 	$ echo $PATH
 	/xtensa-esp32-elf/bin 확인
 
