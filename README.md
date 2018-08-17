@@ -68,7 +68,9 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 ## Install MicroPython
 
 ### 1. Install MicroPython ( latest version )
-[http://micropython.org/download#esp8266](http://micropython.org/download#esp8266) 
+[http://micropython.org/download#esp32](http://micropython.org/download#esp32) 
+	
+	$ wget http://micropython.org/resources/firmware/esp32-20180817-v1.9.4-465-g056e0b629.bin
 
 ### 2. Install esptool
 	$ sudo apt install python-pip
@@ -76,7 +78,8 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 	$ ls -al /dev/ttyUSB0
 	$ python -m esptool --port /dev/ttyUSB0 flash_id
 	$ esptool.py --chip esp32 -p /dev/ttyUSB0 erase_flash
-	$ esptool.py --chip esp32 -p /dev/ttyUSB0 write_flash \ -z 0x1000 esp32-20180815-v1.9.4-465-g056e0b629.bin
+	$ esptool.py --chip esp32 -p /dev/ttyUSB0 write_flash -z 0x1000 esp32-20180817-v1.9.4-465-g056e0b629.bin
+	$ sudo apt-get install screen
 	$ sudo screen /dev/ttyUSB0 115200
 
 ### 3. Install ampy 	
