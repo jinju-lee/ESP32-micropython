@@ -15,7 +15,7 @@ u2_rx.init(400000, bits=8, parity=None, stop=1, rx=22)
 while True:
 	u1_tx.write("u1 HELLO WORLD!!")
 	print(u2_rx.read())
-	u2_tx.write("u2 HELLO WORLD!!")
+	#u2_tx.write("u2 HELLO WORLD!!")
 	print(u1_rx.read())
 	utime.sleep(1)
 	
