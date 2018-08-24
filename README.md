@@ -101,3 +101,5 @@ Serial flasher config --> Default serial port --> /dev/ttyUSB0
 	>>> import os
 	>>> os.listdir()
 	['boot.py', 'blink.py']
+
+### *** 'boot.py'에 넣으면 재부팅시 실행 ***
